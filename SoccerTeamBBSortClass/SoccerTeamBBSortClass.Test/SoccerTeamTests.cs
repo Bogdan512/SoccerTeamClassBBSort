@@ -4,30 +4,29 @@ using SoccerTeamsRankingBubbleSortWithClass;
 
 namespace SoccerTeamBBSortClass.Test
 {
-    public class SoccerTeamClassTests
+    public class SoccerTeamRenewedTests
     {
         [Fact]
         public void Test1()
         {
-            SoccerTeamClass[] soccerTeams = new SoccerTeamClass[]
+            SoccerTeamRenewed[] soccerTeams = new SoccerTeamRenewed[]
             {
-                new SoccerTeamClass( "CFR", 35 ),
-                new SoccerTeamClass( "UCLUJ",33 ),
-                new SoccerTeamClass( "Steaua",28 ),
-                new SoccerTeamClass( "CACAMACA",40 )
+                new SoccerTeamRenewed( "CFR", 35 ),
+                new SoccerTeamRenewed( "UCLUJ",33 ),
+                new SoccerTeamRenewed( "Steaua",28 ),
+                new SoccerTeamRenewed( "CACAMACA",40 )
         };
 
-            SoccerTeamClass[] expected = new SoccerTeamClass[]
+            SoccerTeamRenewed[] expected = new SoccerTeamRenewed[]
             {
-                new SoccerTeamClass( "CACAMACA",40 ),
-                new SoccerTeamClass( "CFR", 35 ),
-                new SoccerTeamClass( "UCLUJ",33 ),
-                new SoccerTeamClass( "Steaua",28 )
+                new SoccerTeamRenewed( "CACAMACA",40 ),
+                new SoccerTeamRenewed( "CFR", 35 ),
+                new SoccerTeamRenewed( "UCLUJ",33 ),
+                new SoccerTeamRenewed( "Steaua",28 )
             };
 
-            //SoccerTeamClass soccerTeam = new SoccerTeamClass();
-            //soccerTeam.BubbleSort(soccerTeams);
-            SoccerTeamClass.BubbleSort(soccerTeams);
+            SoccerTeamRenewed soccerTeam = new SoccerTeamRenewed();
+            soccerTeam.BubbleSort(soccerTeams);
             Assert.Equal(expected, soccerTeams);
         }
     }
