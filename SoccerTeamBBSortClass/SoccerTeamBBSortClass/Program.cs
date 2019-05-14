@@ -2,23 +2,23 @@
 
 namespace SoccerTeamsRankingBubbleSortWithClass
 {
-    public class SoccerTeamClass
+    public class SoccerTeamRenewed
     {
          string name;
          int points;
 
-        public SoccerTeamClass()
+        public SoccerTeamRenewed()
         {
 
         }
 
-        public SoccerTeamClass(string name, int points)
+        public SoccerTeamRenewed(string name, int points)
         {
             this.name = name;
             this.points = points;
         }
 
-        public void BubbleSort(SoccerTeamClass[] teams)
+        public void BubbleSort(SoccerTeamRenewed[] teams)
         {
             for (int i = 0; i < teams.Length - 1; i++)
             {
@@ -35,13 +35,13 @@ namespace SoccerTeamsRankingBubbleSortWithClass
             }
         }
 
-         void Swap(SoccerTeamClass[] teams, int firstIndex, int secondIndex)
+         void Swap(SoccerTeamRenewed[] teams, int firstIndex, int secondIndex)
         {
             (int minIndex, int maxIndex) = GetMinMaxIndex(firstIndex, secondIndex);
             string message = "Swapping elements with indexes ({0}, {1}) and values ({2}, {3})";
             Console.WriteLine(string.Format(message, minIndex, maxIndex, teams[minIndex].name, teams[maxIndex].name));
 
-            SoccerTeamClass temp = teams[minIndex];
+            SoccerTeamRenewed temp = teams[minIndex];
             teams[minIndex] = teams[maxIndex];
             teams[maxIndex] = temp;
         }
@@ -54,21 +54,21 @@ namespace SoccerTeamsRankingBubbleSortWithClass
             return (firstIndex, secondIndex);
         }
 
-        public void Print(SoccerTeamClass[] teamsRanking)
+        public void Print(SoccerTeamRenewed[] teamsRanking)
         {
             for (int i = 0; i < teamsRanking.Length; i++)
                 Console.WriteLine(teamsRanking[i].name + "- " + teamsRanking[i].points);
         }
 
-        public SoccerTeamClass[] ReadTeams()
+        public SoccerTeamRenewed[] ReadTeams()
         {
-            SoccerTeamClass[] result = new SoccerTeamClass[4];
+            SoccerTeamRenewed[] result = new SoccerTeamRenewed[4];
 
             for (int i = 0; i < result.Length; i++)
             {
                 string[] teamData = Console.ReadLine().Split('-');
                 int points = Convert.ToInt32(teamData[1]) + Convert.ToInt32(teamData[2]);
-                result[i] = new SoccerTeamClass(teamData[0], points);
+                result[i] = new SoccerTeamRenewed(teamData[0], points);
             }
 
             return result;
@@ -79,8 +79,8 @@ namespace SoccerTeamsRankingBubbleSortWithClass
     {
          void Main(string[] args)
         {
-            SoccerTeamClass soccerTeam = new SoccerTeamClass();
-            SoccerTeamClass[] teamsRanking = soccerTeam.ReadTeams();
+            SoccerTeamRenewed soccerTeam = new SoccerTeamRenewed();
+            SoccerTeamRenewed[] teamsRanking = soccerTeam.ReadTeams();
             Console.WriteLine();
             soccerTeam.BubbleSort(teamsRanking);
             soccerTeam.Print(teamsRanking);
