@@ -18,7 +18,7 @@ namespace SoccerTeamsRankingBubbleSortWithClass
             this.points = points;
         }
 
-        public static void BubbleSort(SoccerTeamClass[] teams)
+        public void BubbleSort(SoccerTeamClass[] teams)
         {
             for (int i = 0; i < teams.Length - 1; i++)
             {
@@ -35,7 +35,7 @@ namespace SoccerTeamsRankingBubbleSortWithClass
             }
         }
 
-        static void Swap(SoccerTeamClass[] teams, int firstIndex, int secondIndex)
+         void Swap(SoccerTeamClass[] teams, int firstIndex, int secondIndex)
         {
             (int minIndex, int maxIndex) = GetMinMaxIndex(firstIndex, secondIndex);
             string message = "Swapping elements with indexes ({0}, {1}) and values ({2}, {3})";
@@ -46,7 +46,7 @@ namespace SoccerTeamsRankingBubbleSortWithClass
             teams[maxIndex] = temp;
         }
 
-        static (int minIndex, int maxIndex) GetMinMaxIndex(int firstIndex, int secondIndex)
+         (int minIndex, int maxIndex) GetMinMaxIndex(int firstIndex, int secondIndex)
         {
             if (firstIndex > secondIndex)
                 return (secondIndex, firstIndex);
@@ -77,13 +77,12 @@ namespace SoccerTeamsRankingBubbleSortWithClass
 
     public class Program
     {
-        static void Main(string[] args)
+         void Main(string[] args)
         {
             SoccerTeamClass soccerTeam = new SoccerTeamClass();
             SoccerTeamClass[] teamsRanking = soccerTeam.ReadTeams();
             Console.WriteLine();
-            //soccerTeam.BubbleSort(teamsRanking);
-            SoccerTeamClass.BubbleSort(teamsRanking);
+            soccerTeam.BubbleSort(teamsRanking);
             soccerTeam.Print(teamsRanking);
             Console.Read();
         }
